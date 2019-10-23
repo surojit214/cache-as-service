@@ -1,0 +1,16 @@
+server:
+  leader: true
+  port: 8080
+  servlet:
+    context-path: /service
+
+spring:
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.service.kafka.serialization.CacheDataSerializer
+    consumer:
+      bootstrap-servers: localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.service.kafka.serialization.CacheDataDeserializer
